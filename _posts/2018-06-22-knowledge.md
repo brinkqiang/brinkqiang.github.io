@@ -47,9 +47,9 @@ tags:
 用创新超越竞争. 任何创新的基础和前提都是知识的创新.
 ```
 
-![Mobile Preview](https://brinkqiang.github.io/assets/images/yin/奥斯本检核表法.png)
-
 ### 1.5.1. 奥斯本检核表法
+
+![Mobile Preview](https://brinkqiang.github.io/assets/images/yin/奥斯本检核表法.png)
 
 ```
 
