@@ -47,7 +47,7 @@ tags:
 用创新超越竞争. 任何创新的基础和前提都是知识的创新.
 ```
 
-![Mobile Preview](https://brinkqiang.github.io/assets/images/ying/奥斯本检核表法.png)
+![Mobile Preview](https://brinkqiang.github.io/assets/images/yin/奥斯本检核表法.png)
 
 ### 1.5.1. 奥斯本检核表法
 
@@ -58,9 +58,9 @@ tags:
 第三步：筛选评估：对新设想进行筛选, 将最有价值和创新性的设想筛选出来.
 
 ```
-![Mobile Preview](https://brinkqiang.github.io/assets/images/ying/奥斯本检核表法手电筒的检核.png)
-![Mobile Preview](https://brinkqiang.github.io/assets/images/ying/奥斯本检核表法电扇的检核.png)
-![Mobile Preview](https://brinkqiang.github.io/assets/images/ying/奥斯本检核表法水龙头的检核.png)
+![Mobile Preview](https://brinkqiang.github.io/assets/images/yin/奥斯本检核表法手电筒的检核.png)
+![Mobile Preview](https://brinkqiang.github.io/assets/images/yin/奥斯本检核表法电扇的检核.png)
+![Mobile Preview](https://brinkqiang.github.io/assets/images/yin/奥斯本检核表法水龙头的检核.png)
 
 
 ### 1.5.2. 和田十二法
