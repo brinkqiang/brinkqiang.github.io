@@ -9,32 +9,6 @@ tags:
 
 设计师资源大全由[伯乐在线](http://www.jobbole.com)资源频道综合整理。目前已收录 340+ 设计类资源，包含：[ICON图标](http://hao.jobbole.com/category/design/icon-design/)、[Logo设计](http://hao.jobbole.com/category/design/logo-design/)、[PhotoShop插件](http://hao.jobbole.com/category/design/photoshop-plug-in/)、[交互设计工具](http://hao.jobbole.com/category/design/interactive-design-tools/)、[流程图](http://hao.jobbole.com/category/design/flow-chart/)、[线框图/原型图](http://hao.jobbole.com/category/design/design-wireframe/)、[设计博客](http://hao.jobbole.com/category/design/design-blog/)、[设计工具](http://hao.jobbole.com/category/design/design-tools-design/)[设计教程](http://hao.jobbole.com/category/design/design-guide/)、[设计素材](http://hao.jobbole.com/category/design/design-sucai/)、[配色方案](http://hao.jobbole.com/category/design/design-color/)、[高清图库](http://hao.jobbole.com/category/design/design-photo/)等等。
 
-## 如何加入我们？
-
-非常期待能有更多朋友一起来参与。加入前，有几个小要求：
-
-- 对设计感兴趣，如果在从事这方面工作更好；
-- 如果您的英文还不错，那也非常好啦；（这个不强制要求）
-
-如有兴趣，请加 QQ：191250436。加 Q 时请注明「设计资源」
-
-**我们还在翻译国外的优秀设计文章，如果您有一定的设计背景和英文基础，欢迎[从这里申请加入我们](http://group.jobbole.com/category/feedback/trans-team/)。**
-
-
-## 本项目的参与者
-
-ㄨiaǒ偉、shanlijie001、rose、梦熙、布洛、
-
-注：名单不分排名，不定期补充更新
-
-## 奖励计划
-
-虽然奖励可能并不是你加入的主要原因，但还是有必要提一下：
-
-* 整理超过 20 个资源后，可在伯乐在线上开通打赏；
-* 每整理 20 个资源，有机会获得技术书籍或各种有意思的创意、极客产品；
-* [奖励详情](http://hao.jobbole.com/rewards/)
-
 ## 目录
 
 ### ICON图标
