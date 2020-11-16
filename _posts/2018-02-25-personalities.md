@@ -14,3 +14,5 @@ tags:
 
 ![Mobile Preview](https://brinkqiang.github.io/assets/images/yin/MBTI智商.png)
 
+![Mobile Preview](https://brinkqiang.github.io/assets/images/yin/MBTI组合.png)
+
