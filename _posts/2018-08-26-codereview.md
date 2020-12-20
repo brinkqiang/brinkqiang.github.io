@@ -6,7 +6,7 @@ categories:
 tags:
 ---
 
-![Mobile Preview](https://brinkqiang.github.io/assets/images/yang/codereview.png)
+![Mobile Preview](/assets/images/yang/codereview.png)
 
 codereview
 ===

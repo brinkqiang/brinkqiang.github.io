@@ -122,7 +122,7 @@ awk {}内, 可以使用 if else ,for(i=0;i<10;i++), i=1 while(i<NF)
 
  - sed(关键字: 编辑) 以行为单位的文本编辑工具 sed可以直接修改档案, 不过一般不推荐这么做, 可以分析 standard input
 
-![Mobile Preview](https://brinkqiang.github.io/assets/images/yang/sed.png)
+![Mobile Preview](/assets/images/yang/sed.png)
 
 基本工作方式: sed [-nef] '[动作]' [输入文本]
 -n : 安静模式, 一般sed用法中, 来自stdin的数据一般会被列出到屏幕上, 如果使用-n参数后, 只有经过sed处理的那一行被列出来.  

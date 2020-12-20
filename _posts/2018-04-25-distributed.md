@@ -9,7 +9,7 @@ tags:
 # 1. 分布式系统相关概念
 
 1.1 模型
-![Mobile Preview](https://brinkqiang.github.io/assets/images/distributed/1-1.jpg)
+![Mobile Preview](/assets/images/distributed/1-1.jpg)
 
 1.1.1 节点
 
@@ -94,7 +94,7 @@ replica/copy 指在分布式系统中为数据或服务提供的冗余：
 5、你离互联网架构师到底有远？听听就知道。
 
 6、架构师的技术栈应该是怎样的？你来问，我一定答。
-![Mobile Preview](https://brinkqiang.github.io/assets/images/distributed/1-2.jpg)
+![Mobile Preview](/assets/images/distributed/1-2.jpg)
 
 # 2. 分布式系统原理
 2.1 数据分布方式
@@ -105,7 +105,7 @@ replica/copy 指在分布式系统中为数据或服务提供的冗余：
 
 一种常见的哈希方式是按照数据属于的用户id计算哈希。
 
-![Mobile Preview](https://brinkqiang.github.io/assets/images/distributed/1-3.jpg)
+![Mobile Preview](/assets/images/distributed/1-3.jpg)
 
 优点：
 
@@ -119,7 +119,7 @@ replica/copy 指在分布式系统中为数据或服务提供的冗余：
 
 将数据按特征值的值域范围划分数据。例如将用户id的值域分为[1, 33), [33, 90), [90, 100)，由三台服务器处理。注意区间大小与区间内的数据大小没有关系。
 
-![Mobile Preview](https://brinkqiang.github.io/assets/images/distributed/1-4.jpg)
+![Mobile Preview](/assets/images/distributed/1-4.jpg)
 优点：
 
 可扩展性：好。灵活根据数据量拆分原有数据区间
@@ -158,7 +158,7 @@ replica/copy 指在分布式系统中为数据或服务提供的冗余：
 前边4中数据分布方式的讨论中没有考虑数据副本的问题。
 
 (1) 以机器为单位的副本
-![Mobile Preview](https://brinkqiang.github.io/assets/images/distributed/1-5.jpg)
+![Mobile Preview](/assets/images/distributed/1-5.jpg)
 
 缺点：
 
@@ -170,7 +170,7 @@ replica/copy 指在分布式系统中为数据或服务提供的冗余：
 例如3台服务器，10G数据，按100hash取模得到100M每个的数据段，每台服务器负责333个数据段。一旦将数据分成数据段，就可以以数据段为单位管理副本，副本与机器不再硬相关。
 
 例如系统中3个数据o p q, 每个数据段有三个副本，系统中有4台机器：
-![Mobile Preview](https://brinkqiang.github.io/assets/images/distributed/1-6.jpg)
+![Mobile Preview](/assets/images/distributed/1-6.jpg)
 
 
 优点：
@@ -191,7 +191,7 @@ replica/copy 指在分布式系统中为数据或服务提供的冗余：
 并发控制：多个节点同时需要修改副本数据时，需要解决的“写写”、“读写”等并发冲突
 单机系统使用加锁等方式进行并发控制，中心化协议也可以使用。缺点是过分依赖中心节点。
 
-![Mobile Preview](https://brinkqiang.github.io/assets/images/distributed/1-7.jpg)
+![Mobile Preview](/assets/images/distributed/1-7.jpg)
 2.2.2 primary-secondary协议
 
 这是一种常用的中心化副本控制协议，有且仅有一个节点作为primary副本。有4个问题需要解决：
@@ -204,7 +204,7 @@ primary节点进行并发控制并确定并发更新操作的先后顺序
 primary节点将更新操作发送给secondary节点
 primary根据secondary节点的完成情况决定更新是否成功，然后将结果返回外部节点
 
-![Mobile Preview](https://brinkqiang.github.io/assets/images/distributed/1-8.jpg)
+![Mobile Preview](/assets/images/distributed/1-8.jpg)
 
 其中第4步，有些系统如GFS使用接力的方式同步数据，primary -> secondary1 ->secondary2，避免primary的带宽称为瓶颈。
 
@@ -317,7 +317,7 @@ WARO最大程度增强读服务可用性，最大程度牺牲写服务的可用�
 
 Quorum机制下，某次更新Wi一旦在所有N个副本中的W个副本上成功，就称为“成功提交的更新操作”，对应的数据为“成功提交的数据”。令R > N - W，最多需要读取R个副本则一定能读到Wi更新后的数据Vi。
 
-![Mobile Preview](https://brinkqiang.github.io/assets/images/distributed/1-9.jpg)
+![Mobile Preview](/assets/images/distributed/1-9.jpg)
 由此可见WARO是Quorum中W = N时的一个特例。
 
 2.4.3 读取最新成功提交的数据
@@ -332,7 +332,7 @@ N = 5, W = 3, R = 3，某一次的副本状态为(V2 V2 V2 V1 V1)。理论上读
 
 例如读到的是(V2 V1 V1)，因为当副本状态为(V2 V1 V1 V1 V1)时也会读到(V2 V1 V1)，而此时V2版本的数据是一次失败的提交。因此只读3个无法确定最新有效的版本是V2还是V1。
 
-![Mobile Preview](https://brinkqiang.github.io/assets/images/distributed/1-10.jpg)
+![Mobile Preview](/assets/images/distributed/1-10.jpg)
 解决方案：
 
 限制提交的更新操作必须严格递增，只有前一个更新操作成功后才可以提交下一个。保证成功的版本号连续
@@ -351,7 +351,7 @@ R个副本中版本号最高的副本一定蕴含了最新的成功提交的数�
 虽然不能确定版本号最高的数据 == 这个最新成功提交的数据，但新的primary立即完成了对W个副本的更新，从而使其变成了成功提交的数据
 例如：N = 5 W = 3 R = 3的系统，某时刻副本状态(V2 V2 V1 V1 V1)，此时V1是最新成功提交的数据，V2是处于中间状态未成功提交的数据。V2是作为脏数据扔掉，还是作为新数据被同步，完全取决于能否参与q主持的新primary的选举大会。如果q选择(V1 V1 V1)，则在接下来的更新过程中 V2会被当成脏数据扔掉；如果q选择(V2 V1 V1)则V2会将V1更新掉，成为最新成功的数据。
 
-![Mobile Preview](https://brinkqiang.github.io/assets/images/distributed/1-11.jpg)
+![Mobile Preview](/assets/images/distributed/1-11.jpg)
 2.5 日志技术
 
 日志技术不是一种分布式系统技术，但分布式系统广泛使用日志技术做down机恢复。

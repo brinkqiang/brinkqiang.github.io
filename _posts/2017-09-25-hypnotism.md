@@ -20,5 +20,5 @@ A: 回老家 给某人测试过一次. 他那天说 今天估计要失眠了. �
 
 B: 网上帮某人网络测试. 测试完好像说没事 也不知道有没有后遗症. 用的方法 是一种截断 人的联想思路的方法. 简单来说就是人思考事物 是通过联想的方式 通过A想到B B想到C. 这种方法就是摘除B. 在中国古代有种叫忘名术 应该就是这个原理. 老外也做过一种让你忘记银行卡密码的测试.
 
-![Mobile Preview](https://brinkqiang.github.io/assets/images/yin/催眠术.png)
+![Mobile Preview](/assets/images/yin/催眠术.png)
 
