@@ -1,0 +1,40 @@
+diff --git a/_posts/2018-03-08-git-my.md b/_posts/2018-03-08-git-my.md
+index 960cbb1..6674548 100644
+--- a/_posts/2018-03-08-git-my.md
++++ b/_posts/2018-03-08-git-my.md
+@@ -72,4 +72,21 @@ tags:
+ 
+ ## 4.5. 本地创建新的master分支，并拉取远程develop分支最新内容git checkout -b master origin/develop
+ 
+-## 4.6. 将新的master分支推送到远程git push origin master:master
+\ No newline at end of file
++## 4.6. 将新的master分支推送到远程git push origin master:master
++
++# 5. patch处理
++
++同事 A 运行如下命令生成 patch:
++```
++git diff > mod.patch
++```
++应用 patch:
++
++同事 B 运行如下命令应用 patch:
++```
++git patch mod.patch
++```
++当他 review 完代码，想删除该 patch 时， 可运行：
++```
++git apply mod.patch
++```
+diff --git a/_posts/2018-03-08-git.md b/_posts/2018-03-08-git.md
+index e08e452..b92ced1 100644
+--- a/_posts/2018-03-08-git.md
++++ b/_posts/2018-03-08-git.md
+@@ -373,4 +373,5 @@ These features allow to pause a branch development and switch to another one (_"
+ 
+ ### 13.5.3. 更新缓存
+ ipconfig /flushdns
+-sudo dscacheutil -flushcache
+\ No newline at end of file
++sudo dscacheutil -flushcache
++
