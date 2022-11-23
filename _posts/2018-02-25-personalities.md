@@ -35,3 +35,5 @@ tags:
 内倾思维(Ti): 命名(Naming) -> 界定(Defining) -> 理解(Understanding)
 外倾情感(Fe): 验证(Validating) -> 肯定(Affirming) -> 协调(Relating)
 内倾情感(Fi): 判断(Judging) -> 评价(Appraising) -> 确立理念(Establishing)
+
+我们真正需要恐惧的是恐惧本身 - 罗斯福
