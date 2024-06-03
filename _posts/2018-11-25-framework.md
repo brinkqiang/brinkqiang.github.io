@@ -22,16 +22,19 @@ tags:
 # 1. meta填充
 
 ## (1) meta::protobuf
-抽取 protobuf idl可识别元素.
-使用 ctemplate 填充到模板元中去
+- 抽取 protobuf idl可识别元素.
+- 使用 ctemplate 填充到模板元中去
 
 ## (2) meta::cpp
-抽取 C++ 头文件可识别元素.
-使用 ctemplate 填充到模板元中去
+- 抽取 C++ 头文件可识别元素.
+- 使用 ctemplate 填充到模板元中去
 
-# 2. 用dmpackage打包 需要生成代码的 模板文件列表 并提供访问 PACKAGE_API
-# 3. 通过 PACKAGE_API 访问 模板文件列表 并 将 模板文件 填充到模板元中去
-# 4. 通过ctemplate 引擎 翻译 meta 所有元素 并生成代码
+# 2. dmpackage打包 
+- 需要生成代码的 模板文件列表 并提供访问 PACKAGE_API
+# 3. PACKAGE_API
+- 通过dmpackage打包 产生的PACKAGE_API 访问 模板文件列表 并 将 模板文件 填充到模板元中去
+# 4. 模板引擎ctemplate
+- 翻译 meta 所有元素 并生成代码
 
 # 结论：
 当我们想增加 输出功能时， 丰富 meta源 即可。比如 增加mysql数据源，配置文件数据源 皆可
