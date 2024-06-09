@@ -27,7 +27,7 @@ tags:
 注意性能， 对象生命周期，内存泄露问题
 
 多思考，麻烦您按照需求中说的提供C++代码
-
+```
 #include <iostream>
 #include <vector>
 #include <memory>
@@ -145,3 +145,4 @@ int main() {
 
     return 0;
 }
+```
