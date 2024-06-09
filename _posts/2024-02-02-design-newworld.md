@@ -37,116 +37,184 @@ tags:
 #include <memory>
 #include <cstdint>
 
-// 预先声明
-class CQuantumEntanglement;
+// 前置声明
+class Soul;
+class Consciousness;
+class QuantumEntanglement;
 class CPlayer;
 
-// 灵界类
-class CSpiritWorld {
-private:
-    std::vector<std::shared_ptr<CQuantumEntanglement>> quantumEntanglements;
-
+// 灵界 (SpiritWorld)
+class SpiritWorld {
 public:
-    std::shared_ptr<CQuantumEntanglement> CreateQuantumEntanglement(int64_t id);
-    std::shared_ptr<CQuantumEntanglement> FindQuantumEntanglement(int64_t id);
+    std::shared_ptr<QuantumEntanglement> CreateQuantumEntanglement(std::shared_ptr<Soul> soul, std::shared_ptr<Consciousness> consciousness);
+    std::shared_ptr<QuantumEntanglement> FindQuantumEntanglement(std::shared_ptr<Soul> soul, std::shared_ptr<Consciousness> consciousness);
+
+private:
+    std::vector<std::shared_ptr<QuantumEntanglement>> entanglements;
 };
 
-class CQuantumEntanglement {
-private:
-    int64_t id;
-    int64_t yuanShen; // 元神
-    int64_t shiShen;  // 识神
-
+// 人界 (HumanWorld)
+class HumanWorld {
 public:
-    CQuantumEntanglement(int64_t id, int64_t yuanShen, int64_t shiShen)
-        : id(id), yuanShen(yuanShen), shiShen(shiShen) {}
+    std::shared_ptr<CPlayer> CreatePlayer();
+    std::shared_ptr<CPlayer> FindPlayer(std::int64_t playerID);
 
-    int64_t GetID() const { return id; }
-    int64_t GetYuanShen() const { return yuanShen; }
-    int64_t GetShiShen() const { return shiShen; }
+private:
+    std::vector<std::shared_ptr<CPlayer>> players;
 };
 
-std::shared_ptr<CQuantumEntanglement> CSpiritWorld::CreateQuantumEntanglement(int64_t id) {
-    auto qe = std::make_shared<CQuantumEntanglement>(id, id + 1, id + 2);
-    quantumEntanglements.push_back(qe);
-    return qe;
+// 元神 (Soul)
+class Soul {
+public:
+    Soul(std::int64_t ability) : ability(ability) {}
+    std::int64_t GetAbility() const { return ability; }
+
+private:
+    std::int64_t ability;
+};
+
+// 识神 (Consciousness)
+class Consciousness {
+public:
+    Consciousness(std::int64_t ability) : ability(ability) {}
+    std::int64_t GetAbility() const { return ability; }
+
+private:
+    std::int64_t ability;
+};
+
+// 量子纠缠对象 (QuantumEntanglement)
+class QuantumEntanglement {
+public:
+    QuantumEntanglement(std::shared_ptr<Soul> soul, std::shared_ptr<Consciousness> consciousness)
+        : soul(soul), consciousness(consciousness) {}
+
+    std::shared_ptr<Soul> GetSoul() const { return soul; }
+    std::shared_ptr<Consciousness> GetConsciousness() const { return consciousness; }
+
+private:
+    std::shared_ptr<Soul> soul;
+    std::shared_ptr<Consciousness> consciousness;
+};
+
+// 孟婆汤 (ForgetPotion)
+class ForgetPotion {
+public:
+    static void Use(std::shared_ptr<QuantumEntanglement> entanglement) {
+        // 清理元神和识神的信息
+        // 这里我们假设清理的信息是将能力值置为0
+        entanglement->GetSoul()->ResetAbility();
+        entanglement->GetConsciousness()->ResetAbility();
+    }
+};
+
+// 牛头马面 (UnderworldMessenger)
+class UnderworldMessenger {
+public:
+    static void ReturnToSpiritWorld(std::shared_ptr<QuantumEntanglement> entanglement) {
+        // 带着元神和识神回归灵界，信息不清理
+    }
+};
+
+// 人的肉体对象 (CPlayer)
+class CPlayer {
+public:
+    CPlayer(std::int64_t id, std::int64_t ability) : id(id), ability(ability), alive(true), entanglement(nullptr) {}
+
+    void Initialize(std::shared_ptr<QuantumEntanglement> newEntanglement) {
+        ForgetPotion::Use(newEntanglement);
+        entanglement = newEntanglement;
+        // 初始化能力值
+        ability = entanglement->GetConsciousness()->GetAbility();
+    }
+
+    void Die() {
+        alive = false;
+        UnderworldMessenger::ReturnToSpiritWorld(entanglement);
+    }
+
+    std::int64_t GetAbility() const {
+        if (entanglement == nullptr) return ability;
+        return alive ? (ability + entanglement->GetConsciousness()->GetAbility()) : 0;
+    }
+
+    bool IsAlive() const { return alive; }
+
+private:
+    std::int64_t id;
+    std::int64_t ability;
+    bool alive;
+    std::shared_ptr<QuantumEntanglement> entanglement;
+};
+
+// 实现SpiritWorld类的方法
+std::shared_ptr<QuantumEntanglement> SpiritWorld::CreateQuantumEntanglement(std::shared_ptr<Soul> soul, std::shared_ptr<Consciousness> consciousness) {
+    auto entanglement = std::make_shared<QuantumEntanglement>(soul, consciousness);
+    entanglements.push_back(entanglement);
+    return entanglement;
 }
 
-std::shared_ptr<CQuantumEntanglement> CSpiritWorld::FindQuantumEntanglement(int64_t id) {
-    for (auto& qe : quantumEntanglements) {
-        if (qe->GetID() == id) {
-            return qe;
+std::shared_ptr<QuantumEntanglement> SpiritWorld::FindQuantumEntanglement(std::shared_ptr<Soul> soul, std::shared_ptr<Consciousness> consciousness) {
+    for (const auto& entanglement : entanglements) {
+        if (entanglement->GetSoul() == soul && entanglement->GetConsciousness() == consciousness) {
+            return entanglement;
         }
     }
     return nullptr;
 }
 
-// 人界类
-class CHumanWorld {
-private:
-    std::vector<std::shared_ptr<CPlayer>> players;
-
-public:
-    std::shared_ptr<CPlayer> CreatePlayer(int64_t id);
-    std::shared_ptr<CPlayer> FindPlayer(int64_t id);
-};
-
-class CPlayer {
-private:
-    int64_t id;
-    std::shared_ptr<CQuantumEntanglement> quantumEntanglement;
-
-public:
-    CPlayer(int64_t id) : id(id) {}
-
-    int64_t GetID() const { return id; }
-    void LoadQuantumEntanglement(std::shared_ptr<CQuantumEntanglement> qe) {
-        quantumEntanglement = qe;
-    }
-
-    std::shared_ptr<CQuantumEntanglement> GetQuantumEntanglement() const {
-        return quantumEntanglement;
-    }
-};
-
-std::shared_ptr<CPlayer> CHumanWorld::CreatePlayer(int64_t id) {
-    auto player = std::make_shared<CPlayer>(id);
+// 实现HumanWorld类的方法
+std::shared_ptr<CPlayer> HumanWorld::CreatePlayer() {
+    static std::int64_t nextID = 1;
+    auto player = std::make_shared<CPlayer>(nextID++, 100);  // 初始能力值为100
     players.push_back(player);
     return player;
 }
 
-std::shared_ptr<CPlayer> CHumanWorld::FindPlayer(int64_t id) {
-    for (auto& player : players) {
-        if (player->GetID() == id) {
+std::shared_ptr<CPlayer> HumanWorld::FindPlayer(std::int64_t playerID) {
+    for (const auto& player : players) {
+        if (player->GetID() == playerID) {
             return player;
         }
     }
     return nullptr;
 }
 
-// 测试代码
 int main() {
-    CSpiritWorld spiritWorld;
-    CHumanWorld humanWorld;
+    // 创建灵界和人界
+    SpiritWorld spiritWorld;
+    HumanWorld humanWorld;
 
-    // 创建元神+识神的量子纠缠对象
-    auto qe = spiritWorld.CreateQuantumEntanglement(1);
+    // 创建元神和识神
+    auto soul = std::make_shared<Soul>(50);  // 元神能力值为50
+    auto consciousness = std::make_shared<Consciousness>(30);  // 识神能力值为30
 
-    // 创建人的肉体对象
-    auto player = humanWorld.CreatePlayer(1);
+    // 在灵界中创建量子纠缠对象
+    auto entanglement = spiritWorld.CreateQuantumEntanglement(soul, consciousness);
 
-    // 投胎过程
-    player->LoadQuantumEntanglement(qe);
+    // 在人界中创建玩家
+    auto player = humanWorld.CreatePlayer();
 
-    // 验证
-    auto foundPlayer = humanWorld.FindPlayer(1);
-    if (foundPlayer && foundPlayer->GetQuantumEntanglement()) {
-        std::cout << "Player ID: " << foundPlayer->GetID() << "\n";
-        std::cout << "Quantum Entanglement ID: " << foundPlayer->GetQuantumEntanglement()->GetID() << "\n";
-    } else {
-        std::cout << "Player or Quantum Entanglement not found.\n";
-    }
+    // 初始化玩家并绑定量子纠缠对象
+    player->Initialize(entanglement);
+
+    // 输出玩家当前能力值
+    std::cout << "玩家当前能力值: " << player->GetAbility() << std::endl;
+
+    // 模拟玩家死亡
+    player->Die();
+
+    // 输出玩家死亡后的能力值
+    std::cout << "玩家死亡后的能力值: " << player->GetAbility() << std::endl;
 
     return 0;
 }
+
+/* 
+补充内容：
+1. CPlayer类增加了ID成员变量用于唯一标识玩家。
+2. HumanWorld类的CreatePlayer方法为每个玩家分配唯一ID。
+3. 添加了一些基本的输入输出代码用于演示功能。
+4. 忽略了一些复杂的逻辑细节（如记忆清理的具体实现、牛头马面返回灵界的具体过程）以简化代码示例。
+*/
 ```
