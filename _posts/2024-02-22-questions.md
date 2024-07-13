@@ -6,8 +6,7 @@ categories:
 tags:
 ---
 
-
-# 提问的智慧
+# 提问的智慧 | 提问的艺术
 
 **How To Ask Questions The Smart Way**
 
@@ -28,7 +27,7 @@ Copyleft 2001 by D.H.Grand(nOBODY/Ginux), 2010 by Gasolin, 2015 by Ryan Wu
 ## [原文版本历史](history.md)
 
 ## 目录
-- [提问的智慧](#提问的智慧)
+- [提问的智慧 | 提问的艺术](#提问的智慧--提问的艺术)
   - [原文版本历史](#原文版本历史)
   - [目录](#目录)
   - [声明](#声明)
