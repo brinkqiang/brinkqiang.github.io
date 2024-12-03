@@ -1,14 +1,14 @@
 ---
-title: design-newworld
+title: design-newworld-wujinlunhui
 description:
 categories:
- - design-newworld
+ - design-newworld-wujinlunhui
 tags:
 ---
 
 # 游戏概况
 
-这是一款有生死轮回的游戏.
+无尽轮回游戏设计
 按照现实世界运作原理 并进行玄学化模拟.
 
 种子世界比如 默认有10000名玩家 他们是伊甸园(原始地球)的居民. 而其他的玩家需要投胎. 
