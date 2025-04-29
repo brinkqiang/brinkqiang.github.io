@@ -707,6 +707,8 @@ vendors:
 css: assets/css
 js: assets/js
 images: assets/images
+profile-3d: profile-3d-contrib
+profile-summary-card: profile-summary-card-output
 
 # Theme version
 version: 5.1.1

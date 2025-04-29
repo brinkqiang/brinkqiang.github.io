@@ -1,0 +1,36 @@
+name: profile-3d
+
+on:
+  schedule: # execute every 24 hours
+    - cron: "0 19 * * *"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: generate-github-profile-3d-contrib
+    steps:
+      - uses: actions/checkout@v3
+      - uses: brinkqiang/github-profile-3d-contrib@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USERNAME: ${{ github.repository_owner }}
+      - name: Commit & Push
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add -A .
+          git commit -m "generated"
+          git push
+
+      - name: Print current time
+        run: |
+          echo "The current UTC time is: $(date -u)"
+
+      - name: Status
+        uses: brinkqiang/github-status-action@v2
+        with:
+          authToken: ${{secrets.GITHUB_TOKEN}}
+          context: 'Set Status'
+          description: 'Passed'
+          state: 'success'
