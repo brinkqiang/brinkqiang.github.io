@@ -52,13 +52,3 @@
 ```
 
     
-
----
-
-![](./4-productive-time.svg)
-
-```
-![](https://raw.githubusercontent.com/brinkqiang/brinkqiang.github.io/master/profile-summary-card-output/noctis_minimus/4-productive-time.svg)
-```
-
-    
